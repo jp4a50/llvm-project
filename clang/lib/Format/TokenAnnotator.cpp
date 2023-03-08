@@ -5127,7 +5127,8 @@ bool TokenAnnotator::mustBreakBefore(const AnnotatedLine &Line,
   // Deal with lambda arguments in C++ - we want consistent line breaks whether
   // they happen to be at arg0, arg1 or argN. The selection is a bit nuanced
   // as aggressive line breaks are placed when the lambda is not the last arg.
-  if ((Style.Language == FormatStyle::LK_Cpp ||
+  if (Style.LambdaBodyIndentation == FormatStyle::LBI_Signature &&
+      (Style.Language == FormatStyle::LK_Cpp ||
        Style.Language == FormatStyle::LK_ObjC) &&
       Left.is(tok::l_paren) && Left.BlockParameterCount > 0 &&
       !Right.isOneOf(tok::l_paren, TT_LambdaLSquare)) {

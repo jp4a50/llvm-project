@@ -446,6 +446,8 @@ clang-format
 - Add additional Qualifier Ordering support for special cases such
   as templates, requires clauses, long qualified names.
 - Fix all known issues associated with ``LambdaBodyIndentation: OuterScope``.
+- Avoid unnecessarily aggressive line-breaking when using
+  ``LambdaBodyIndentation: OuterScope`` with argument bin-packing.
 
 libclang
 --------
